@@ -19,7 +19,7 @@ Route::get('/', function () {
 //===
 //= This is route for chatfuel webhook
 //===
-Route::get('/chatfuelWebhook', function () {
+Route::post('/chatfuelWebhook', function () {
 	
     return "Fisher, please go away.";
 });
