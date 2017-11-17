@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-	
+
     return view('welcome');
 });
 
-
+//===
+//= This is route for chatfuel webhook
+//===
+Route::get('/chatfuelWebhook', function () {
+	
+    return "Fisher, please go away.";
+});
