@@ -21,6 +21,10 @@ A facebook bot that tells you the name of any governor of any state in Nigeria.
  ```
  copy .env.example .env
  ```
+ OR
+  ```
+ cp .env.example .env
+ ```
  Update the `.env` file with your system settings. (database details etc.)
 
  3. Install dependencies:
