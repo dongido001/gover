@@ -18,6 +18,9 @@ class CreateGovernorsTable extends Migration
             $table->unsignedInteger('country_id');
             $table->unsignedInteger('state_id');
             $table->string('name');
+            $table->timestamp('took_office')->nullable();
+            $table->timestamp('left_office')->nullable();
+            $table->boolean('is_active', 1);
             $table->softDeletes();
             $table->timestamps();
 
