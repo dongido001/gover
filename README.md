@@ -7,7 +7,7 @@ A facebook bot that tells you the name of any governor of any state in Nigeria.
  * php 7.x
  * composer
 
-## How to install
+## Setting up project
 
  > In your terminal, make sure you are on the root folder of the project.
 
@@ -40,11 +40,11 @@ A facebook bot that tells you the name of any governor of any state in Nigeria.
   php -S localhost:9090 -t publlic
  ```
 
- ## What next? :thinking_face:
+ ## What next? :full_moon_with_face:
 
  * Relax 🛏️.
 
  * Grab a coffee 🍷.
 
- * Contribute to the project :fire: :fire:
+ * Contribute to the project :fire: :fire:.
 
