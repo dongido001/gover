@@ -9,12 +9,13 @@ A facebook bot that tells you the name of any governor of any state in Nigeria.
 
 ## Setting up project
 
- > In your terminal, make sure you are on the root folder of the project.
-
  1. Clone the repository:
    ```
      git clone git@github.com:dongido001/gover.git
    ``` 
+
+  > In your terminal, make sure you are on the root folder of the project.
+
  2. Create a .env file:
 
  ```
