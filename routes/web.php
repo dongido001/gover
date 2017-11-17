@@ -19,13 +19,4 @@ Route::get('/', function () {
 //===
 //= This is route for chatfuel webhook
 //===
-Route::get('/chatfuelWebhook', function () {
-	
-	return '{
-		 "messages": [
-		   {"text": "Welcome to the Chatfuel Rockets!"},
-		   {"text": "What are you up to?"}
-		 ]
-		}';
-    //return "Fisher, please go away.";
-});
+Route::get('/chatfuelWebhook', "WebhookController@replyMessage");
