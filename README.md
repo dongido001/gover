@@ -38,11 +38,22 @@ A facebook bot that tells you the name of any governor of any state in Nigeria.
 ```
    php artisan migrate
 ```
+ 5. Adding some dummy data:
 
- 4. Serve the project:
+```
+   php artisan db:seed
+```
+
+ 6. Serve the project
   
  ```
   php -S localhost:9090 -t publlic
+ ```
+
+ Or
+
+ ```
+  php artisan serve
  ```
 
  ## What next? :full_moon_with_face:
