@@ -29,7 +29,7 @@ class WebhookController extends Controller
     public function replyMessage(Request $request)
     {
     	$request = $request->all();
-        
+  
         $text = array_get($request, "text");
         $last_name = array_get($request, "last_name");
         $first_name = array_get($request, "first_name");
@@ -47,12 +47,13 @@ class WebhookController extends Controller
 
 	        if( ($extracts['status'] == "complete") AND $extracts['state'] ){
 	             
-	            $state_id = State::where("name", $extracts['states'])->pluck("id");
+	            $state_id = State::where("name", 'LIKE', "%{$extracts['state']}%" )->value('id');
 
-	            $governor = Governor::where("state_id", $state_id)->pluck("name");
+	            $governor = Governor::where("state_id", $state_id)->value("name");
+
 	        }
 
-       	  $data = ["text" => (isset($governor)) ? $governor : "No data found" ];
+       	  $data = ["text" => (isset($governor)) ? $governor : "No data found, try something like: Who is the governor of Abia State?" ];
        }
 
     	return MessageHelper::formatMessage($data);

@@ -47,7 +47,9 @@ class MessageHelper extends Helper
       
       $message = strtolower($message);
 
-      $commands = trim(preg_replace('/\s+/', ' ', $message));
+      $commands = trim(preg_replace('/\s+/', ' ', $message)); //remove extra spaces
+      $commands = preg_replace('/[^\da-z ]/i', '', $commands); //remove non alphabets but leave spaces
+    
       $commands = explode(' ', $commands);
 
       $state = $status = "";
@@ -55,7 +57,7 @@ class MessageHelper extends Helper
       if( @$commands[count($commands) - 1] == "state" ){
 
         //remove the last element - that's the "state" found 
-        $commands = array_splice($commands,1);
+         unset($commands[count($commands) - 1]);
        }
 
         if( @$commands[count($commands) - 2] == "of" ){
@@ -65,7 +67,7 @@ class MessageHelper extends Helper
 
         if( @$commands[count($commands) - 3] == "governor" ){
 
-         $tatus = "complete";
+         $status = "complete";
         }
       
       return [
