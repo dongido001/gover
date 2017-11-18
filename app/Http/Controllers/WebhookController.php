@@ -21,12 +21,11 @@ class WebhookController extends Controller
     }
     
      /**
-     * Request comming from chatfuel will hit this method first.
-     * From here, we'll determine what to say to the user :)
+     * Request comming from chatfuel will hit this method to get governor detail
      *
      * @return json
      */
-    public function replyMessage(Request $request)
+    public function getGovernor(Request $request)
     {
     	$request = $request->all();
   
@@ -58,5 +57,15 @@ class WebhookController extends Controller
 
     	return MessageHelper::formatMessage($data);
       
+    }
+
+     /**
+     * Request comming from chatfuel will hit this method to get date
+     *
+     * @return json
+     */
+    public function getDate()
+    {
+       return date("Y-m-d H:i:s");
     }
 }
