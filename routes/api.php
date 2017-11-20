@@ -17,3 +17,13 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], funct
     Route::get('/customers', 'MessageController@getCustomers');
     Route::get('/customer/{customer_id}', 'MessageController@getLogsByCustomer');
 });
+
+//===
+//= This is route for chatfuel webhook that responds to governor related questions
+//===
+Route::post('/getGovernor', "WebhookController@getGovernor");
+
+//===
+//= This is route for chatfuel webhook that responds to date
+//===
+Route::get('/getDate', "WebhookController@getDate");
