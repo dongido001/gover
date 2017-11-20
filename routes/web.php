@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 
-    return view('welcome');
+    return redirect("/admin/customers");
 });
 
 //===
@@ -25,3 +25,11 @@ Route::get('/getGovernor', "WebhookController@getGovernor");
 //= This is route for chatfuel webhook that responds to date
 //===
 Route::get('/getDate', "WebhookController@getDate");
+
+Auth::routes(); //displays authentication routes...
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('customers', 'MessageLogController@index')->name('message_log.index');
+});

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Helpers\MessageHelper;
 use App\Governor;
 use App\State;
+use App\MessageLog;
+use Carbon\Carbon;
 
 class WebhookController extends Controller
 {
@@ -40,7 +41,7 @@ class WebhookController extends Controller
              ["text" => "No result found."],
            ];
         }
-       else{
+       else {
 
 	        $extracts = MessageHelper::getStateStatus($text);
 
@@ -49,14 +50,21 @@ class WebhookController extends Controller
 	            $state_id = State::where("name", 'LIKE', "%{$extracts['state']}%" )->value('id');
 
 	            $governor = Governor::where("state_id", $state_id)->value("name");
-
 	        }
 
        	  $data = ["text" => (isset($governor)) ? $governor : "No data found, try something like: Who is the governor of Abia State?" ];
+
+          //log message...
+
+          MessageLog::create([ 
+                 "messenger_user_id" => $messenger_user_id, 
+                 "message"   => $text, 
+                 'first_name' => $first_name, 
+                 'last_name'  => $last_name
+          ]);
        }
 
     	return MessageHelper::formatMessage($data);
-      
     }
 
      /**
@@ -66,6 +74,8 @@ class WebhookController extends Controller
      */
     public function getDate()
     {
-       return date("Y-m-d H:i:s");
+       $data = ['text' => Carbon::now()->format('l jS \\of F Y h:i:s A') ];
+
+       return MessageHelper::formatMessage($data);
     }
 }
