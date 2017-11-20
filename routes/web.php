@@ -19,7 +19,7 @@ Route::get('/', function () {
 //===
 //= This is route for chatfuel webhook that responds to governor related questions
 //===
-Route::get('/getGovernor', "WebhookController@getGovernor");
+Route::post('/getGovernor', "WebhookController@getGovernor");
 
 //===
 //= This is route for chatfuel webhook that responds to date
