@@ -16,16 +16,6 @@ Route::get('/', function () {
     return redirect("/admin/customers");
 });
 
-//===
-//= This is route for chatfuel webhook that responds to governor related questions
-//===
-Route::post('/getGovernor', "WebhookController@getGovernor");
-
-//===
-//= This is route for chatfuel webhook that responds to date
-//===
-Route::get('/getDate', "WebhookController@getDate");
-
 Auth::routes(); //displays authentication routes...
 
 Route::get('/home', 'HomeController@index')->name('home');
